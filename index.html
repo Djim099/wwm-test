@@ -515,12 +515,12 @@
     h1.hero-hl {
       font-family: var(--ff-en);
       font-weight: 900;
-      font-size: clamp(2rem, 4.8vw, 4rem);
+      font-size: clamp(2.6rem, 5.8vw, 5rem);
       line-height: 1.0;
       letter-spacing: -.01em;
       color: #e74c3c;
-      text-shadow: 0 2px 12px rgba(0, 0, 0, 1), 0 4px 40px rgba(0, 0, 0, 1), 0 0 80px rgba(0, 0, 0, .9);
-      margin-bottom: .6rem
+      text-shadow: 0 2px 12px rgba(0, 0, 0, 1), 0 4px 40px rgba(0, 0, 0, 1), 0 0 80px rgba(0, 0, 0, .9), 0 0 120px rgba(231, 76, 60, .25);
+      margin-bottom: 1.2rem
     }
 
     html.lang-ko h1.hero-hl,
@@ -532,22 +532,22 @@
     .hero-hl-stroke {
       display: block;
       color: transparent;
-      -webkit-text-stroke: 1.2px rgba(255, 255, 255, .8);
-      font-size: .72em;
-      margin-top: .04em
+      -webkit-text-stroke: 1.5px rgba(255, 255, 255, .95);
+      font-size: .78em;
+      margin-top: .08em
     }
 
     .hero-sub {
       max-width: 560px;
-      font-size: clamp(1.2rem, 2.2vw, 1.55rem);
+      font-size: clamp(1.25rem, 2.4vw, 1.65rem);
       font-weight: 400;
       font-style: italic;
       color: #fff;
-      line-height: 1.75;
-      margin-bottom: 1.4rem;
-      background: rgba(28, 18, 8, .75);
-      padding: 16px 20px;
-      border-left: 2px solid rgba(200, 148, 58, .45)
+      line-height: 1.8;
+      margin-bottom: 1.8rem;
+      background: rgba(28, 18, 8, .82);
+      padding: 18px 22px;
+      border-left: 3px solid rgba(200, 148, 58, .7)
     }
 
     html.lang-ko .hero-sub,
@@ -701,15 +701,16 @@
     }
 
     .hero-note {
-      font-size: .72rem;
+      font-size: .82rem;
       font-style: italic;
-      color: #f0dfa8;
+      color: #ffe9a8;
       margin-bottom: 1rem;
       font-family: var(--ff-body);
-      letter-spacing: .03em;
-      background: rgba(28, 18, 8, .65);
-      padding: 4px 12px;
-      display: inline-block
+      letter-spacing: .06em;
+      background: rgba(28, 18, 8, .72);
+      padding: 6px 16px;
+      display: inline-block;
+      border-left: 1px solid rgba(200, 148, 58, .35)
     }
 
     .chips {
@@ -4044,13 +4045,8 @@
         <img id="hero-logo" src="" alt="Where Winds Meet"
           style="height:clamp(40px,6vw,72px);width:auto;display:none;object-fit:contain;filter:brightness(0) invert(1);opacity:.9;margin-bottom:4px">
         <div class="game-title" id="game-title-text" data-i18n="game.name">WHERE WINDS MEET</div>
-        <div class="game-subtitle-line">
-          <div class="game-subtitle-dot" aria-hidden="true"></div>
-          <span class="game-subtitle-text" data-i18n="game.tagline">10th-Century China · Free to Play · PC</span>
-        </div>
       </div>
 
-      <p class="hero-eyebrow rv" data-i18n="hero.ey">Every blade has a story. Write yours.</p>
       <h1 class="hero-hl rv d1">
         <span data-i18n="hero.h1">A World With No Rules.</span>
         <span class="hero-hl-stroke" data-i18n="hero.h2">Except the Ones You Write.</span>
@@ -4072,16 +4068,6 @@
             </svg>
           </span>
         </a>
-      </div>
-      <div class="rv d3" style="display:flex;align-items:center;gap:8px;margin-top:4px">
-        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true" style="opacity:.7">
-          <circle cx="9" cy="9" r="8" stroke="#fff" stroke-width="1.2" />
-          <path d="M9 5a4 4 0 0 1 0 8" stroke="#fff" stroke-width="1.2" fill="none" />
-          <circle cx="9" cy="9" r="2" fill="#fff" />
-        </svg>
-        <span
-          style="font-family:var(--ff-en);font-size:.55rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.7);text-shadow:0 1px 6px rgba(0,0,0,1)"
-          data-i18n="social.steam_hero">Available Free on Steam</span>
       </div>
       <p class="hero-note rv d3" data-i18n="hero.note">Free to play. The Jianghu asks only one thing: that you enter.
       </p>
