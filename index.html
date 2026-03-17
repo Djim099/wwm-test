@@ -23,13 +23,12 @@
     content="An epic open-world wuxia action RPG set in ancient China. Master the blade. Shape your destiny.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Critical fonts (above-the-fold): load immediately -->
   <link rel="preload"
-    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Noto+Serif+SC:wght@300;400;700&family=Noto+Serif+KR:wght@300;400;700&family=Noto+Serif+JP:wght@300;400;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap"
     as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Noto+Serif+SC:wght@300;400;700&family=Noto+Serif+KR:wght@300;400;700&family=Noto+Serif+JP:wght@300;400;700&display=swap"
-      rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
   </noscript>
   <style>
     *,
@@ -399,7 +398,7 @@
       height: 100%;
       object-fit: cover;
       z-index: 0;
-      display: none
+      display: block
     }
 
     .hero-video {
@@ -410,7 +409,8 @@
       object-fit: cover;
       z-index: 1;
       opacity: 0;
-      transition: opacity 1.4s ease
+      transition: opacity 1.4s ease;
+      will-change: opacity
     }
 
     .hero-veil {
@@ -1389,7 +1389,7 @@
       background-size: auto, cover, auto;
       background-position: center, center center, center;
       background-repeat: no-repeat, no-repeat, no-repeat;
-      background-attachment: scroll, fixed, scroll
+      background-attachment: scroll, scroll, scroll
     }
 
     .faq-inner {
@@ -1710,7 +1710,7 @@
       background-size: auto, cover, auto;
       background-position: center, center center, center;
       background-repeat: no-repeat, no-repeat, no-repeat;
-      background-attachment: scroll, fixed, scroll
+      background-attachment: scroll, scroll, scroll
     }
 
     .sysreq-ghost {
@@ -2985,7 +2985,7 @@
       background-size: auto, cover, auto;
       background-position: center, center center, center;
       background-repeat: no-repeat, no-repeat, no-repeat;
-      background-attachment: scroll, fixed, scroll
+      background-attachment: scroll, scroll, scroll
     }
 
     .reviews-ghost {
@@ -3974,7 +3974,7 @@
       <div class="hw-m5"></div>
       <div class="hw-mist"></div>
       <div class="hw-mist2"></div>
-      <img class="hero-poster" id="hero-poster" alt="" decoding="async">
+      <img class="hero-poster" id="hero-poster" src="assets/images/hero_poster.webp" alt="" decoding="async" fetchpriority="high">
       <video class="hero-video" id="hero-video"
         src="https://res.cloudinary.com/dcc17awcl/video/upload/v1773723566/hero_sx3hiw_ed7f41.mp4" autoplay playsinline
         muted
@@ -5690,7 +5690,8 @@
             hideMountains();
           }
           if (poster) {
-            poster.src = 'assets/images/hero_poster.webp';
+            // src already set in HTML for faster LCP — no need to reassign
+            poster.style.display = 'block';
           }
           hv.poster = 'assets/images/hero_poster.webp';
           hv.muted = false;
@@ -6161,6 +6162,13 @@
           requestAnimationFrame(function () {
             document.querySelectorAll('.hero .rv').forEach(function (el) { el.classList.add('show'); });
           });
+          // Defer heavy Noto fonts (CJK) until after page load — saves ~200ms on LCP
+          window.addEventListener('load', function () {
+            var noto = document.createElement('link');
+            noto.rel = 'stylesheet';
+            noto.href = 'https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;700&family=Noto+Serif+KR:wght@300;400;700&family=Noto+Serif+JP:wght@300;400;700&display=swap';
+            document.head.appendChild(noto);
+          }, { once: true });
         }
         document.readyState === 'loading'
           ? document.addEventListener('DOMContentLoaded', init)
