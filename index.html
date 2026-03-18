@@ -4212,6 +4212,8 @@
           <button class="w-dot" data-page="1" aria-pressed="false" aria-label="Page 2"></button>
         </div>
 
+      </div><!-- /weapons-track-wrap -->
+
     </section>
 
     <div class="divider" aria-hidden="true"></div>
@@ -5480,7 +5482,7 @@
         /* ── ASSETS ── */
         function loadAssets() {
           var url = isPH(CFG.ctaUrl) ? '#' : CFG.ctaUrl;
-          ['hero-cta', 'tra-cta', 'sty-cta', 'sysreq-cta', 'final-cta-btn', 'steam-badge-btn', 'win-badge-btn'].forEach(function (id) {
+          ['hero-cta', 'tra-cta', 'sty-cta', 'sysreq-cta', 'final-cta-btn'].forEach(function (id) {
             var el = document.getElementById(id); if (el) el.href = url;
           });
           if (!isPH(CFG.logo)) {
