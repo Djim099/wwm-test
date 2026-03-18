@@ -3094,7 +3094,9 @@
       border: 1px solid rgba(200, 148, 58, .15);
       padding: 28px 24px 24px;
       overflow: hidden;
-      transition: border-color .4s, transform .4s ease, background .4s
+      transition: border-color .4s, transform .4s ease, background .4s;
+      display: flex;
+      flex-direction: column
     }
 
     .review-card:hover {
@@ -3152,7 +3154,8 @@
       color: #fff;
       line-height: 1.75;
       margin-bottom: 16px;
-      text-shadow: 0 1px 6px rgba(0, 0, 0, .8)
+      text-shadow: 0 1px 6px rgba(0, 0, 0, .8);
+      flex-grow: 1
     }
 
     html.lang-ko .review-quote,
@@ -3170,7 +3173,8 @@
     .review-author {
       display: flex;
       align-items: center;
-      gap: 10px
+      gap: 10px;
+      margin-top: auto
     }
 
     .review-avatar {
@@ -4913,7 +4917,7 @@
 
     <footer>
       <img id="footer-logo" src="assets/images/logo.webp" alt="" aria-hidden="true" role="presentation"
-        style="height:clamp(56px,7vw,80px);width:auto;display:none;object-fit:contain;filter:brightness(0) invert(1);opacity:.65;margin:0 auto 24px">
+        style="height:clamp(56px,7vw,80px);width:auto;display:block;object-fit:contain;filter:brightness(0) invert(1);opacity:.65;margin:0 auto 24px">
       <p class="footer-seal" aria-hidden="true">風 · 俠 · 道</p>
       <p class="footer-note" data-i18n="footer.note">Unofficial promotional page. Not affiliated with the official
         developer. Steam is a trademark of Valve Corporation.</p>
